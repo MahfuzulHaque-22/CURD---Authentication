@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CURD_Demo_MVC.Models.tblUser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<center>
+    <br /><br />
+
+    <h2>CSE 7<sup>th</sup> Batch Students list</h2>
+    <br />
+    <br />
+    <p>
+        @Html.ActionLink("ADD NEW DATA", "Create")
+    </p>
+</center>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.ActionLink("Modify", "Edit", new { id=item.id }) |
+            @Html.ActionLink("View", "Details", new { id=item.id }) |
+            @Html.ActionLink("Remove", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
